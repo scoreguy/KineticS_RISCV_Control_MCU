@@ -1,0 +1,2 @@
+# Kinetic_S_RISCV_with_PID_core
+The project explores a hybrid hardware–software architecture in which dedicated digital logic performs PID control computations, while a RISC-V processor handles high-level decision-making, system configuration, and communication. It incorporates multiple parallel PID loops, memory-mapped tuning of \(K_p\), \(K_i\), and \(K_d\), and peripheral interfaces such as UART, SPI, and I²C, alongside PWM outputs.
