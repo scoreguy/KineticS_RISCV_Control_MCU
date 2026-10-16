@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/alu.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/alu_control.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/branch_control.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/control_unit.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/data_mem.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/imm_gen.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/instr_mem.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/register_file.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/riscv_cpu_pynq.v" \
+"../../../../../OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/riscv_cpu_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

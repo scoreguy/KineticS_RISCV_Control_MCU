@@ -1,0 +1,20 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/alu_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu_control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/branch_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module branch_control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/data_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/imm_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module imm_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/instr_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module instr_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/register_file.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module register_file
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/riscv_cpu_pynq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv_cpu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/riscv_cpu_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv_cpu_tb

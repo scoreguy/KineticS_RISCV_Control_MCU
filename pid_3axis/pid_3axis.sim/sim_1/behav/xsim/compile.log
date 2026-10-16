@@ -1,0 +1,12 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/project_1/project_1.srcs/sources_1/new/pid_main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PID
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/project_1/project_1.srcs/sources_1/new/pwm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pwm
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/project_1/project_1.srcs/sources_1/new/top_mod.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_4pid_pwm
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'out_roll' is not allowed [C:/Users/AZHAR/project_1/project_1.srcs/sources_1/new/top_mod.v:62]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'out_pitch' is not allowed [C:/Users/AZHAR/project_1/project_1.srcs/sources_1/new/top_mod.v:63]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'out_yaw' is not allowed [C:/Users/AZHAR/project_1/project_1.srcs/sources_1/new/top_mod.v:64]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'out_z' is not allowed [C:/Users/AZHAR/project_1/project_1.srcs/sources_1/new/top_mod.v:65]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/AZHAR/pid_3axis/pid_3axis.srcs/sim_1/new/new_sim.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top_4pid

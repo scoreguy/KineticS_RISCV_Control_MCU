@@ -1,0 +1,52 @@
+Time resolution is 1 ps
+WARNING: File imem.hex referenced from process on C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/instr_mem.v at line 27 cannot be opened for reading. Please ensure that this file is available in the current working directory or parent directory of xsim.dir location specified via -xsimdir switch.
+
+=== TEST 1: R-type arithmetic ===
+  PASS [             ADD] x3 = 0x00000011
+  PASS [             SUB] x4 = 0x00000003
+  PASS [             AND] x5 = 0x00000002
+  PASS [              OR] x6 = 0x0000000f
+  PASS [             XOR] x7 = 0x0000000d
+  PASS [             SLL] x8 = 0x00000500
+  PASS [             SRL] x9 = 0x0000000a
+  PASS [             SLT] x10 = 0x00000001
+  PASS [            SLTU] x11 = 0x00000000
+
+=== TEST 2: I-type arithmetic ===
+  FAIL [        ADDI_neg] x1: got 0x00000001, expected 0xffffffff
+  FAIL [            XORI] x2: got 0xfffffffe, expected 0x00000000
+  PASS [             ORI] x3 = 0x0000003f
+  PASS [            ANDI] x4 = 0x0000000f
+  PASS [            SLLI] x5 = 0x000000fc
+  PASS [            SRLI] x6 = 0x0000003f
+  FAIL [            SRAI] x7: got 0x00000000, expected 0xffffffff
+  FAIL [            SLTI] x8: got 0x00000000, expected 0x00000001
+  PASS [           SLTIU] x9 = 0x00000000
+
+=== TEST 3: LUI and AUIPC ===
+  PASS [             LUI] x1 = 0x12345000
+  PASS [           AUIPC] x2 = 0x00000004
+
+=== TEST 4: Load and Store ===
+  PASS [              LW] x3 = 0x000000ab
+  PASS [             LBU] x4 = 0x000000ab
+  PASS [         LB_sign] x5 = 0xffffffab
+
+=== TEST 5: Branches ===
+  PASS [       BEQ_taken] x3 = 0x00000001
+  PASS [       BNE_taken] x3 = 0x00000002
+
+=== TEST 6: JAL and JALR ===
+  PASS [          JAL_ra] x1 = 0x00000004
+  PASS [        JAL_land] x2 = 0x0000002a
+
+=== TEST 7: x0 hardwired zero ===
+  PASS [         x0_zero] x0 = 0x00000000
+
+=== TEST 8: SRA (arithmetic shift) ===
+  FAIL [        SRAI_neg] x2: got 0x00000000, expected 0xffffffff
+
+=== SUMMARY ===
+PASS: 24   FAIL: 5
+Some tests FAILED — check logic above.
+$finish called at time : 916 ns : File "C:/Users/AZHAR/OneDrive/Desktop/vivado_exp/RISC-V-Single-Cycle-Processor-main/riscv_cpu_tb.v" Line 344

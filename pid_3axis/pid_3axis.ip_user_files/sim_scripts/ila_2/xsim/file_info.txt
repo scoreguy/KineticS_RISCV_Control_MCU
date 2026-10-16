@@ -1,0 +1,2 @@
+ila_2.v,verilog,xil_defaultlib,../../../../pid_3axis.gen/sources_1/ip/ila_2/sim/ila_2.v,incdir="D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef"incdir="../../../../pid_3axis.gen/sources_1/ip/ila_2/hdl/verilog"
+glbl.v,Verilog,xil_defaultlib,glbl.v
