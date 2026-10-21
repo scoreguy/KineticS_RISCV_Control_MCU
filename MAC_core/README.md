@@ -2,7 +2,9 @@
 
 ## Scope
 
-This directory contains a standalone, parameterized multiply-accumulate core, a local register and streaming wrapper, and self-checking testbenches. The MAC has no PID-specific state: it performs arithmetic commands while the caller owns the PID history, error calculation, scheduling, final sum, and actuator policy.
+This directory contains the shared-MAC compute block for the larger KINETIC-S RISC-V MCU project: a parameterized multiply-accumulate core, a local register and streaming wrapper, and self-checking testbenches. The MAC has no PID-specific state: it performs arithmetic commands while the caller owns the PID history, error calculation, scheduling, final sum, and actuator policy.
+
+The MAC-based PID simulation is the current control-system milestone. The RISC-V processor, system peripheral fabric, and physical sensor/actuator connections are planned integrations around this block, not part of this standalone core.
 
 The PID and hinged propeller-arm examples in this project are simulations. They do not represent a physical motor/IMU test or a completed RISC-V, AXI-Lite, DMA, UART, SPI, or PWM integration.
 

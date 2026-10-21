@@ -1,8 +1,12 @@
 # KINETIC-S
 
-## Shared MAC acceleration for PID control
+## A RISC-V MCU platform for closed-loop control
 
-KINETIC-S explores how a reusable hardware multiply-accumulate (MAC) unit can support fixed-point PID workloads. The current deliverable is a parameterized MAC core, a register and streaming wrapper, and simulation testbenches that exercise the core with both basic arithmetic and PID-style control workloads.
+KINETIC-S is a developing microcontroller platform intended to bring a RISC-V processor, memory-mapped peripherals, and reusable control hardware together for embedded control systems. The project direction is a complete MCU that can acquire sensor data, run control and supervisory software, and drive actuators.
+
+### Current validated milestone
+
+The current implementation validates fixed-point PID arithmetic using a shared multiply-accumulate (MAC) core. It includes a parameterized MAC, a register and streaming wrapper, and testbenches for basic arithmetic and PID-style closed-loop simulation. The RISC-V processor and wider peripheral set are future integration work; they are not included in the current standalone MAC core.
 
 The hinged propeller-arm example is a Verilog simulation. Its testbench supplies the target, maintains PID history, sends commands to the MAC, and updates a simplified plant model. It demonstrates the data path and closed-loop simulation flow; it is not a measurement from a physical IMU, motor, propeller, or FPGA board.
 
@@ -87,16 +91,17 @@ Place the supplied screenshots and plots in a repository-level `media/` director
 
 ![PID simulation sample and cycle summary](media/pid-simulation-summary.png)
 
-## Repository scope
+## MCU roadmap and repository scope
 
-| Included in the current work | Future integration, not part of the current core |
+| Current verified work | Planned MCU integration |
 |---|---|
 | Parameterized MAC RTL and local register/stream wrapper | RISC-V soft-core processor and firmware driver |
-| Basic arithmetic and wrapper testbenches | AXI-Lite bridge, DMA, UART, and SPI integration |
-| PID arithmetic comparison and simplified plant simulation | Physical IMU, motor, and propeller feedback loop |
-| Golden-output checks against the original PID RTL | Verified FPGA resource, power, or post-route timing results |
+| Basic arithmetic and wrapper testbenches | Memory-mapped peripheral fabric and system address map |
+| PID arithmetic comparison and simplified plant simulation | AXI-Lite bridge, DMA, UART, SPI, and PWM integration |
+| Golden-output checks against the original PID RTL | Sensor and actuator interfaces, followed by broader control-system testing |
+|  | Verified FPGA resource, power, or post-route timing results |
 
-The repository is a useful starting point for hardware/software partitioning: the MAC handles repeated multiply-accumulate work, while a future CPU can own setpoints, sensor processing, PID state, scheduling, and actuator policy.
+The intended system places the CPU and control peripherals around the shared MAC. The MAC handles repeated multiply-accumulate work; MCU software will manage setpoints, sensor processing, PID state, scheduling, safety policy, and actuator commands. Each integration stage should be verified against the closed-loop control workload.
 
 ## Run the standalone MAC regression
 
