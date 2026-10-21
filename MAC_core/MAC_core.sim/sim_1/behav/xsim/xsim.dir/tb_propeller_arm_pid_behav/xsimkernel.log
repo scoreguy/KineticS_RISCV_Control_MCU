@@ -1,0 +1,7 @@
+Running: xsim.dir/tb_propeller_arm_pid_behav/xsimk.exe -simmode gui -wdb tb_propeller_arm_pid_behav.wdb -simrunnum 0 -socket 51263
+Design successfully loaded
+Design Loading Memory Usage: 11112 KB (Peak: 11112 KB)
+Design Loading CPU Usage: 30 ms
+Simulation completed
+Simulation Memory Usage: 13524 KB (Peak: 13524 KB)
+Simulation CPU Usage: 124 ms

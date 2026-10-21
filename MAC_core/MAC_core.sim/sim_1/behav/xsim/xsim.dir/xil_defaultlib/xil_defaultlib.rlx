@@ -1,0 +1,12 @@
+0.7
+2020.2
+Nov 14 2025
+19:37:27
+C:/Users/AZHAR/nexus_one/MAC_core/MAC_core.sim/sim_1/behav/xsim/glbl.v,1756381829,verilog,,,,glbl,,uvm,,,,,,
+C:/Users/AZHAR/nexus_one/MAC_core/MAC_core.srcs/sim_1/new/tb_single_param.v,1792618549,verilog,,,,tb_propeller_arm_pid,,uvm,D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/AZHAR/nexus_one/MAC_core/mac_core/rtl/mac_core.sv,1792424101,systemVerilog,,C:/Users/AZHAR/nexus_one/MAC_core/mac_core/rtl/mac_regs.sv,,mac_core,,uvm,D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/AZHAR/nexus_one/MAC_core/mac_core/rtl/mac_regs.sv,1792427572,systemVerilog,,C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_mac.sv,,mac_regs,,uvm,D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_mac.sv,1792440044,systemVerilog,,C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_mac_basic.sv,,tb_mac,,uvm,D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_mac_basic.sv,1792440602,systemVerilog,,C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_pid_mac.sv,,tb_mac_basic,,uvm,D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_pid_mac.sv,1792440036,systemVerilog,,C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_regs.sv,,tb_pid_mac,,uvm,D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_regs.sv,1792424329,systemVerilog,,,,tb_regs,,uvm,D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef,,,,,

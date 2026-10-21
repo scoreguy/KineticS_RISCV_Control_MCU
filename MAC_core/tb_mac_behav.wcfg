@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_mac_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_mac" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="8,550.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="9,146.001 ns"></ZoomEndTime>
+      <Cursor1Time time="8,800.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="173"></NameColumnWidth>
+      <ValueColumnWidth column_width="171"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/tb_mac/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/enable" type="logic">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/valid" type="logic">
+      <obj_property name="ElementShortName">valid</obj_property>
+      <obj_property name="ObjectShortName">valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/op" type="array">
+      <obj_property name="ElementShortName">op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">op[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/a" type="array">
+      <obj_property name="ElementShortName">a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/b" type="array">
+      <obj_property name="ElementShortName">b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/load_value" type="array">
+      <obj_property name="ElementShortName">load_value[31:0]</obj_property>
+      <obj_property name="ObjectShortName">load_value[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/sm" type="logic">
+      <obj_property name="ElementShortName">sm</obj_property>
+      <obj_property name="ObjectShortName">sm</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/sat" type="logic">
+      <obj_property name="ElementShortName">sat</obj_property>
+      <obj_property name="ObjectShortName">sat</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/rnd" type="logic">
+      <obj_property name="ElementShortName">rnd</obj_property>
+      <obj_property name="ObjectShortName">rnd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/shift" type="array">
+      <obj_property name="ElementShortName">shift[7:0]</obj_property>
+      <obj_property name="ObjectShortName">shift[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/acc" type="array">
+      <obj_property name="ElementShortName">acc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/f" type="array">
+      <obj_property name="ElementShortName">f[31:0]</obj_property>
+      <obj_property name="ObjectShortName">f[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/n" type="array">
+      <obj_property name="ElementShortName">n[31:0]</obj_property>
+      <obj_property name="ObjectShortName">n[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/oi" type="array">
+      <obj_property name="ElementShortName">oi[31:0]</obj_property>
+      <obj_property name="ObjectShortName">oi[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/mi" type="array">
+      <obj_property name="ElementShortName">mi[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mi[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/sh" type="array">
+      <obj_property name="ElementShortName">sh[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sh[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/count" type="array">
+      <obj_property name="ElementShortName">count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/expected" type="array">
+      <obj_property name="ElementShortName">expected[31:0]</obj_property>
+      <obj_property name="ObjectShortName">expected[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/old" type="array">
+      <obj_property name="ElementShortName">old[31:0]</obj_property>
+      <obj_property name="ObjectShortName">old[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/filename" type="array">
+      <obj_property name="ElementShortName">filename[1023:0]</obj_property>
+      <obj_property name="ObjectShortName">filename[1023:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/W" type="array">
+      <obj_property name="ElementShortName">W[31:0]</obj_property>
+      <obj_property name="ObjectShortName">W[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mac/AW" type="array">
+      <obj_property name="ElementShortName">AW[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AW[31:0]</obj_property>
+   </wvobject>
+</wave_config>

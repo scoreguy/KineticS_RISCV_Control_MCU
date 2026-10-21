@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "D:/AMDDesignTools_25/2025.2/Vivado/data/rsb/busdef" \
+"../../../../mac_core/rtl/mac_core.sv" \
+"../../../../mac_core/tb/tb_mac_basic.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

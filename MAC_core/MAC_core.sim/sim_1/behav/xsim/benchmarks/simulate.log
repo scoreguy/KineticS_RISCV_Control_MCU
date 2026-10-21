@@ -1,0 +1,11 @@
+Time resolution is 1 ps
+PASS step 1: op=1 a=0 b=0 acc=0 expected=0
+PASS step 2: op=0 a=3 b=4 acc=12 expected=12
+PASS step 3: op=0 a=2 b=5 acc=22 expected=22
+PASS step 4: op=0 a=-2 b=3 acc=16 expected=16
+PASS step 5: op=2 a=0 b=0 acc=100 expected=100
+PASS step 6: op=0 a=7 b=6 acc=142 expected=142
+PASS step 7: op=1 a=0 b=0 acc=0 expected=0
+PASS step 8: op=0 a=7 b=6 acc=42 expected=42
+PASS BASIC MAC: all 8 steps passed
+$finish called at time : 472 ns : File "C:/Users/AZHAR/nexus_one/MAC_core/mac_core/tb/tb_mac_basic.sv" Line 58

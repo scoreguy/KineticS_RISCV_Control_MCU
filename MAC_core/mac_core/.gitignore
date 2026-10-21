@@ -1,0 +1,7 @@
+work/
+xsim.dir/
+*.jou
+*.log
+*.pb
+*.wdb
+__pycache__/
