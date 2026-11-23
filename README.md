@@ -1,12 +1,9 @@
-# KINETIC-S
+# KINETIC-S: MAC Accelerator for Control and Inference
 
-## A RISC-V MCU platform for closed-loop control
+A SystemVerilog multiply–accumulate core runs two workloads: four-axis PID control and handwritten digit classification. The PID simulation checks the shared core against the original parallel controller. The classifier compares one MAC with two MACs processing different digit classes in parallel.
 
-KINETIC-S is a developing microcontroller platform intended to bring a RISC-V processor, memory-mapped peripherals, and reusable control hardware together for embedded control systems. The project direction is a complete MCU that can acquire sensor data, run control and supervisory software, and drive actuators.
-
-### Current validated milestone
-
-The current implementation validates fixed-point PID arithmetic using a shared multiply-accumulate (MAC) core. It includes a parameterized MAC, a register and streaming wrapper, and testbenches for basic arithmetic and PID-style closed-loop simulation. The RISC-V processor and wider peripheral set are future integration work; they are not included in the current standalone MAC core.
+- [PID control and MAC verification](MAC_core/mac_core/README.md) — 88,000 axis samples matched the original RTL.
+- [Digit classifier, waveforms and FPGA reports](MAC_core/mac_core/classifier/README.md) — 1,300 clocks per image with one MAC and 650 with two, using 3 and 6 DSP blocks respectively.
 
 The hinged propeller-arm example is a Verilog simulation. Its testbench supplies the target, maintains PID history, sends commands to the MAC, and updates a simplified plant model. It demonstrates the data path and closed-loop simulation flow; it is not a measurement from a physical IMU, motor, propeller, or FPGA board.
 
@@ -29,7 +26,7 @@ A MAC is itself digital logic. The comparison is between duplicated parallel ari
 
 For intuition, a simple CPU implementation without a fused MAC instruction may need several instructions to prepare operands, multiply, add to the accumulator, and write back the result. A sequence of roughly six steps is a useful example, but the exact count depends on the CPU, instruction set, compiler, and register allocation. One MAC command expresses `accumulator + a * b` as a single hardware operation. In this RTL, the result commits one clock interval after command acceptance; a complete PID update still takes multiple commands and controller steps.
 
-The current repository does not contain a RISC-V CPU or a measured CPU-versus-MAC benchmark. The testbench's “fake CPU” is simulation code that performs the scheduling role a future processor could perform.
+The testbench schedules commands and maintains PID state. The standalone MAC benchmarks run without a processor.
 
 ## Architecture
 
@@ -71,44 +68,20 @@ The supplied propeller-arm simulation log uses a target angle of `450` and an in
 
 The 60-cycle figure is the testbench's end-to-end schedule for the P/I/D register transactions and result polling. It is not the arithmetic latency of one MAC command. The core itself commits a command one clock interval after accepting it.
 
-The broader standalone-core regression documented with the project also reports 88,000 axis samples matching the original PID RTL. See the [MAC core README](mac_core/README.md) for the register map, arithmetic modes, command timing, and regression details.
+The broader standalone-core regression documented with the project also reports 88,000 axis samples matching the original PID RTL. See the [MAC core README](MAC_core/mac_core/README.md) for the register map, arithmetic modes, command timing, and regression details.
 
-## Output media
+## PID simulation waveforms
 
-Place the supplied screenshots and plots in a repository-level `media/` directory with these names, or update the paths below to match your filenames:
+![PID feedback waveform](Waveforms_Logs/WAVEFORM_CLOSED_FEEDBACK_MAC.png)
 
-### PID control waveform
-
-![PID bus and control-state waveform](media/pid-control-waveform.png)
-
-### Propeller-arm response
-
-![Initial propeller-arm response](media/propeller-angle-response-start.png)
-
-![Settled propeller-arm response](media/propeller-angle-response-settled.png)
-
-### Simulation summary
-
-![PID simulation sample and cycle summary](media/pid-simulation-summary.png)
-
-## MCU roadmap and repository scope
-
-| Current verified work | Planned MCU integration |
-|---|---|
-| Parameterized MAC RTL and local register/stream wrapper | RISC-V soft-core processor and firmware driver |
-| Basic arithmetic and wrapper testbenches | Memory-mapped peripheral fabric and system address map |
-| PID arithmetic comparison and simplified plant simulation | AXI-Lite bridge, DMA, UART, SPI, and PWM integration |
-| Golden-output checks against the original PID RTL | Sensor and actuator interfaces, followed by broader control-system testing |
-|  | Verified FPGA resource, power, or post-route timing results |
-
-The intended system places the CPU and control peripherals around the shared MAC. The MAC handles repeated multiply-accumulate work; MCU software will manage setpoints, sensor processing, PID state, scheduling, safety policy, and actuator commands. Each integration stage should be verified against the closed-loop control workload.
+![Steady-state MAC output](Waveforms_Logs/STEADY_STATE_OUTPUT_MAC.png)
 
 ## Run the standalone MAC regression
 
-The self-contained core regression is in [`mac_core/`](mac_core/README.md). It uses Python 3 and Icarus Verilog (`iverilog` and `vvp`):
+The self-contained core regression is in [`MAC_core/mac_core/`](MAC_core/mac_core/README.md). It uses Python 3 and Icarus Verilog (`iverilog` and `vvp`):
 
 ```sh
-cd mac_core
+cd MAC_core/mac_core
 python scripts/run.py
 ```
 

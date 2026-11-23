@@ -51,9 +51,9 @@ module tb_pid_mac;
  integer closed_fb[0:3],last_actual[0:3],next_fb,trace;
  integer f,g,n,k,r,s,fb,kp,ki,kd,count=0,start_cycle,frame_start,axis_cycles=0,frame_cycles=0;
  initial begin
-   f=$fopen("C:/Users/AZHAR/nexus_one/MAC_core/mac_core/golden/stimulus.txt","r");g=$fopen("C:/Users/AZHAR/nexus_one/MAC_core/mac_core/golden/original.txt","r");
+   f=$fopen("golden/stimulus.txt","r");g=$fopen("golden/original.txt","r");
    if(!f || !g) $fatal(1,"PID files");
-   trace=$fopen("C:/Users/AZHAR/nexus_one/MAC_core/mac_core/golden/closed_loop.csv","w");
+   trace=$fopen("golden/closed_loop.csv","w");
    if(!trace) $fatal(1,"trace file");
    $fdisplay(trace,"sample,axis,feedback,original_output,mac_output");
    closed_fb[0]=400; closed_fb[1]=-250; closed_fb[2]=600; closed_fb[3]=-300;

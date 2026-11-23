@@ -14,61 +14,66 @@ module mac_core #(
     output reg busy, done,
     output reg [ACC_W-1:0] acc
 );
-    localparam integer PW=2*(OPERAND_W+1);
-    localparam integer EW=(PW>ACC_W ? PW : ACC_W)+2;
-    reg [1:0] op_q;
-    reg [ACC_W-1:0] load_q;
-    reg signed_q, sat_q, round_q;
-    reg [7:0] shift_q;
-    reg signed [PW-1:0] product_q;
-    wire signed [OPERAND_W:0] ax={signed_mode & a[OPERAND_W-1],a};
-    wire signed [OPERAND_W:0] bx={signed_mode & b[OPERAND_W-1],b};
-    reg signed [EW-1:0] term, base, total, hi, lo, bias;
-    reg [ACC_W-1:0] result;
-    assign cmd_ready=enable && !rst && !busy;
+    localparam PRODUCT_W = 2 * (OPERAND_W + 1);
+    localparam SUM_W = (PRODUCT_W > ACC_W ? PRODUCT_W : ACC_W) + 2;
+    localparam signed [SUM_W-1:0] ONE = 1;
+    localparam signed [SUM_W-1:0] SIGNED_MIN = -(ONE << (ACC_W - 1));
+    localparam signed [SUM_W-1:0] SIGNED_MAX = (ONE << (ACC_W - 1)) - 1;
+    localparam signed [SUM_W-1:0] UNSIGNED_MAX = (ONE << ACC_W) - 1;
+
+    // One extra bit lets the multiplier handle both signed and unsigned inputs.
+    wire signed [OPERAND_W:0] operand_a = {signed_mode & a[OPERAND_W-1], a};
+    wire signed [OPERAND_W:0] operand_b = {signed_mode & b[OPERAND_W-1], b};
+    reg signed [PRODUCT_W-1:0] product;
+    reg [1:0] operation;
+    reg [ACC_W-1:0] saved_load;
+    reg [7:0] saved_shift;
+    reg use_signed, use_rounding, use_saturation;
+
+    assign cmd_ready = enable && !rst && !busy;
+
+    // Scale the product, add the old accumulator, then clamp if requested.
+    reg signed [SUM_W-1:0] total;
     always @* begin
-        term={{(EW-PW){product_q[PW-1]}},product_q};
-        bias=0;
-        // Round to nearest, ties toward +infinity; otherwise arithmetic floor.
-        // Shifts >= EW are explicitly defined (no rounding addition).
-        if (round_q && shift_q!=0 && shift_q<EW) begin
-            bias=1;
-            bias=bias << (shift_q-1);
-            term=term+bias;
+        total = product;
+        if (use_rounding && saved_shift > 0 && saved_shift < SUM_W)
+            total = total + (ONE << (saved_shift - 1));
+        total = (total >>> saved_shift) + $signed({use_signed & acc[ACC_W-1], acc});
+
+        if (use_saturation) begin
+            if (use_signed && total < SIGNED_MIN) total = SIGNED_MIN;
+            if (use_signed && total > SIGNED_MAX) total = SIGNED_MAX;
+            if (!use_signed && total > UNSIGNED_MAX) total = UNSIGNED_MAX;
         end
-        term=term >>> shift_q;
-        base=$signed({{(EW-ACC_W){signed_q & acc[ACC_W-1]}},acc});
-        total=base+term;
-        hi=0; lo=0;
-        if (signed_q) begin
-            hi=( {{(EW-1){1'b0}},1'b1} << (ACC_W-1))-1;
-            lo=-( {{(EW-1){1'b0}},1'b1} << (ACC_W-1));
-        end else hi=( {{(EW-1){1'b0}},1'b1} << ACC_W)-1;
-        result=total[ACC_W-1:0];
-        if (sat_q && total>hi) result=hi[ACC_W-1:0];
-        else if (sat_q && total<lo) result=lo[ACC_W-1:0];
     end
+
     always @(posedge clk) begin
         if (rst) begin
-            acc<=0; busy<=0; done<=0; product_q<=0;
-            op_q<=0; load_q<=0; signed_q<=0; sat_q<=0;
-            round_q<=0; shift_q<=0;
+            acc  <= 0;
+            busy <= 0;
+            done <= 0;
         end else begin
-            done<=0;
+            done <= 0;
             if (busy) begin
-                case(op_q)
-                    0: acc<=result;
-                    1: acc<=0;
-                    2: acc<=load_q;
-                    default: acc<=acc;
+                // Second edge: publish the result of the saved command.
+                case (operation)
+                    0: acc <= total[ACC_W-1:0];
+                    1: acc <= 0;
+                    2: acc <= saved_load;
+                    default: ;  // Reserved command holds the accumulator.
                 endcase
-                busy<=0; done<=1;
+                busy <= 0;
+                done <= 1;
             end else if (cmd_valid && cmd_ready) begin
-                product_q<=ax*bx;
-                op_q<=cmd_op; load_q<=load_value;
-                signed_q<=signed_mode; sat_q<=saturate;
-                round_q<=round_nearest; shift_q<=shift;
-                busy<=1;
+                // First edge: capture everything needed for this command.
+                product        <= operand_a * operand_b;
+                operation      <= cmd_op;
+                saved_load     <= load_value;
+                saved_shift    <= shift;
+                use_signed     <= signed_mode;
+                use_rounding   <= round_nearest;
+                use_saturation <= saturate;
+                busy           <= 1;
             end
         end
     end

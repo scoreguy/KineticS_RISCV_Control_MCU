@@ -2,6 +2,8 @@
 
 One reusable MAC datapath, a local register/stream wrapper, and self-checking tests that reproduce the original four-axis PID arithmetic. RISC-V, AXI-Lite bridging, DMA, UART, SPI and PWM integration are deferred.
 
+[Digit classifier: single- and dual-MAC benchmarks](classifier/README.md)
+
 ## Files to use
 
 | File | Purpose |

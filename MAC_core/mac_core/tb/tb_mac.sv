@@ -16,7 +16,7 @@ module tb_mac;
  reg [AW-1:0] expected,old;
  reg [1023:0] filename;
  initial begin
-   if(!$value$plusargs("VECTORS=%s",filename))filename="C:/Users/AZHAR/nexus_one/MAC_core/mac_core/golden/mac_32_32.txt";
+   if(!$value$plusargs("VECTORS=%s",filename))filename="golden/mac_32_32.txt";
    f=$fopen(filename,"r"); if(!f) $fatal(1,"open MAC vectors");
    repeat(2) @(negedge clk); rst=0;
    while(!$feof(f)) begin
